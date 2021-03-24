@@ -49,12 +49,18 @@ const theme = {
         '40em', '52em', '64em',
     ],
     variants: {
-        infobox: {
+        Info: {
             width: "80%",
             height: "auto",
             bg: "white",
             boxShadow: "card",
             padding: 3
+        },
+        column: {
+            flexDirection: "column"
+        },
+        row: {
+            flexDirection: "row"
         }
 }}
   

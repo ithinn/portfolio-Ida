@@ -1,43 +1,137 @@
+import React from "react";
 import styled from "styled-components";
-import {Box} from "reflexbox/styled-components"
-import Link from "next/link"
+import Button from "../Button";
+//import confIcon from "../../public/img/icon_bck_gray.png"
+//import opIcon from "../../public/img/un.png"
 
 
-const H2 = styled.h2`
-    font-size: ${props => props.theme.fontSizes.md};
-    margin: 0;
-    letter-spacing: ${props => props.theme.letterSpacings[1]};
-    text-transform: uppercase;
-    text-align: center;
+export const InfoBoxBase = styled.article`
+    background-color: white;
+    width: 20%;
+    min-width: 12em;
+    height: auto;
+    max-height: 80vh;
+    position: absolute;
+    z-index: 2;
+    padding: 1em;
+    margin-top: 1em;
+    left: 5%;
+    box-shadow: 4px 4px 7px 5px rgba(38,28,27,0.47);
+    overflow-y: auto;   
 `
 
-const H3 = styled.h3`
-    font-size: ${props => props.theme.fontSizes.sm};
-    margin: 0;
-    text-align: center;
+const LabelAsButton = styled.label`
+    font-size: .9rem;
+    padding: .3em .3em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &:hover {
+        background: lightgray; 
+    }
+    &:active{
+        background: #593131;
+    }
+
+    @media (min-width: 1500px) {
+        font-size: 1.3rem;
+    }
+    
 `
 
-const P = styled.p`
-    font-size: ${props => props.theme.fontSizes.txt};
-    text-align: center;
+const ImgDiv = styled.div`
+    width: 40px;
+    display: flex;
+    justify-content: flex-end;
+    height: auto;
+    background: darkgrey;
+    border: 1px darkgrey solid;
+    border-radius: 10em;
+    margin-right: 1em;
+    box-shadow: inset 0px 0px 1px 1px rgba(0,0,0,0.25);
 `
 
-const Pitalic = styled(P)`
-    font-style: italic;
-    text-align: center;
+const ImgDivOff = styled(ImgDiv)`
+    justify-content: flex-start;
+    background: #f9f9f8;
 `
 
+const IconImage = styled.img`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+`
 
+export const InvisibleCheckbox = styled.input`
+    height: 1px;
+    width: 1px;
+`
 
-const InfoBox = ({heading, info, year, details}) => {
+function InfoBox({func, conflictCB, operationsCB, refreshMap }) {
+
     return(
-        <Box width="100%" p={3}>
-            <H2>{heading}</H2>
-            <H3>({year})</H3>
-            <Pitalic>{info}</Pitalic>
-            <P>{details}</P>
-        </Box>
+        <InfoBoxBase>
+            <Button 
+                onClick={refreshMap} 
+                color="white" 
+                buttonWidth="100%" 
+                buttonBorder="none"
+            />
+            
+            <div >
+                <div>
+                    <InvisibleCheckbox 
+                        defaultChecked="true" 
+                        onClick={func} 
+                        type="checkbox" 
+                        id="conflicts"
+                    />
+
+                    <LabelAsButton htmlFor="conflicts">
+                        {conflictCB === true ? 
+                        <ImgDiv>
+                            <IconImage src={confIcon} />
+                        </ImgDiv> 
+                        : 
+                        <ImgDivOff>
+                            <IconImage src={confIcon} />
+                        </ImgDivOff>}
+                        
+                        Konflikter
+                    </LabelAsButton>
+                </div>
+                
+                <div>
+                    <InvisibleCheckbox 
+                        defaultChecked="true" 
+                        onClick={func} 
+                        type="checkbox"    
+                        id="operations" 
+                    />
+
+                    <LabelAsButton htmlFor="operations">
+                        
+                        {operationsCB === true ? 
+                        <ImgDiv>
+                            <IconImage src={opIcon} />
+                        </ImgDiv> 
+                        : 
+                        <ImgDivOff>
+                            <IconImage src={opIcon} />
+                        </ImgDivOff>}
+                        
+                        FN-operasjoner
+                    </LabelAsButton>
+                </div>
+            </div>
+
+            <div className="infowrap"></div>
+          
+        </InfoBoxBase>
     )
 }
 
 export default InfoBox;
+

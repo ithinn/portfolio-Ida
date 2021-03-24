@@ -3,7 +3,7 @@ import styled from "styled-components";
 const HeaderBase = styled.header`
     width: 100%;
     height: auto;
-    background-color: red;
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -12,14 +12,16 @@ const HeaderBase = styled.header`
 `
 
 const H1 = styled.h1`
-    font-size: 3rem;
-    text-align: center;
+    font-size: ${props => props.theme.fontSizes.xl};
+    text-align: left;
+    margin-bottom: 0;
 `
 
 const Subtitle = styled.h2`
     font-size: 1.7rem;
     font-style: italic;
-    text-align: center;
+    text-align: left;
+    margin-top: 0;
 `
 
 const Header = () => {

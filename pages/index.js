@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { Flex, Box } from "reflexbox/styled-components";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
-import InfoBox from "../components/InfoBox";
+import Info from "../components/Info";
 import { SectionBase } from "../components/StyledComponents/SectionBase";
 import Refugees from "../components/Refugees"
 import Mockup from "../components/Mockup"
-
+import Map from "../components/Map";
+import Test from "../components/Test";
 
 const Home = () => {
 
@@ -45,21 +46,37 @@ const Home = () => {
 
   return (
     <Layout>
-      <Flex justifyContent="space-between" alignItems="center" flexDirection="column">
+      <Flex width="100%" height="auto" alignItems="center" flexDirection="column">
         
-        <Box>
-          <InfoBox heading="Flyktningstatistikk" year="2021" info="React, Highcharts, Javascript"></InfoBox>
-          <SectionBase flexDirection="column" mt={4} width="100%">
+        <Flex flexDirection="column" alignItems="center" height="auto" width="100%">
+          <Info heading="Flyktningstatistikk" year="2021" info="React, Highcharts, Javascript"></Info>
+          <SectionBase flexDirection="column">
             <Refugees/>
           </SectionBase>
-        </Box>
+        </Flex>
 
-        <Box>
-          <InfoBox heading="Bestillingsløsning" year="2021" info="React, Next.js, Firebase" details="Skoleoppgave: Lag en bestillingsløsning for en burgerrestaurant med realtime-oppdateringer mellom kjøkkenvisning, restaurantvisning og kundevisning. Autentisering og skjemavalidering."></InfoBox>
-          <SectionBase flexDirection="column" mt={5}>
+        <Flex flexDirection="column" alignItems="center" height="100vh" width="100%">
+          <Info bg="purple" heading="Bestillingsløsning" year="2021" info="React, Next.js, Firebase" details="Skoleoppgave: Lag en bestillingsløsning for en burgerrestaurant med realtime-oppdateringer mellom kjøkkenvisning, restaurantvisning og kundevisning. Autentisering og skjemavalidering."></Info>
+          <SectionBase flexDirection="column" mt={4} height="auto" >
             <Mockup src="/img/burgerMockups/mockup-0" numbOfImg={4} handleChange={(array, interval) => handleImgChange(array, interval)}></Mockup>
           </SectionBase>
-        </Box>
+        </Flex>
+
+        <Flex flexDirection="column" alignItems="center" height="auto" width="100%">
+          <Info 
+          heading="Sammenlign land" year="2020" info="Design" details="Designet ikoner og ny sidevisning for FN-sambandet"></Info>
+          <SectionBase flexDirection="column" mt={4}>
+            <Mockup src="/img/compare/compare-" numbOfImg={4} handleChange={(array, interval) => handleImgChange(array, interval)}></Mockup>
+          </SectionBase>
+        </Flex>
+
+        <Flex flexDirection="column" alignItems="center">
+          <Info 
+          heading="Konfliktkart" year="2021" info="Mapbox, CosmicJs, React, Javascript" details="Noen detaljer om kartet"></Info>
+          <SectionBase flexDirection="column" mt={4}>
+            <Test/>
+          </SectionBase>
+        </Flex>
 
 
         

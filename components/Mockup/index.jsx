@@ -11,13 +11,7 @@ const burgerImg = [
     "/img/burgerMockups/restMockup.png"
 ]
 
-const LargeImg = styled.image`
-    object-fit: cover;
-    width: 100%;
-    height: auto;
 
-
-`
 
 const ImgWrapper = styled(Flex)`
 
@@ -25,22 +19,8 @@ width: 100%;
 height: auto;
 align-items: center;
 justify-content: center;
-
 `
 
-const DesktopBase = styled(Box)`
-    width: 60%;
-    height: auto;
-    background-color: pink;
-   
-`
-
-const MobileBase = styled(Box)`
-background-color: blue;
-    width: 40%;
-    height: auto;
-    
-`
 /*
 const addOne = (array) => {
 
@@ -100,19 +80,9 @@ useEffect(() => {
                 className={utilStyles.mockComp}
                 
             />
-        
         </ImgWrapper>
         </>
     )
 }
 
 export default Mockup;
-/*
-<Image
-                src={handleChange(burgerImg, 3000)}
-                height={500}
-                width={800}
-                layout="responsive"
-                className={utilStyles.mockComp}
-                
-            />*/

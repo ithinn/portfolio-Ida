@@ -18,7 +18,7 @@ const Container = styled.div`
     width: 90%;
     height: 90vh;
     margin: 0 auto;
-    background-color: red;
+    
 `
 
 //Used to format the values from the data 
@@ -111,7 +111,8 @@ function RefugeesFrom() {
                 type: 'packedbubble',
                 backgroundColor:"#f9f9f8",
                 style: {
-                    'font-family': 'Arial'
+                    'font-family': 'Arial',
+              
                 }
             },
             plotOptions: {
