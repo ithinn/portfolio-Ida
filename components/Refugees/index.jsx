@@ -97,8 +97,9 @@ function RefugeesFrom() {
             title: {
                 text: 'Hvilke land har flest innbyggere på flukt?',
                 style: {
-                    fontSize: "2rem",
+                    fontSize: "1.2rem",
                     fontWeight: "400",
+                    fontFamily: "frank-new"
                 },
             },
             colors: ['orange', 'red', 'green', 'blue', 'gray', 'purple', 'pink', 'lightblue', 'marine'],

@@ -5,7 +5,7 @@ function Layout( {children} ) {
     return(
         <>  
             <Head>
-                <link rel="stylesheet" href="https://use.typekit.net/gsa0dnm.css"></link>
+                <link rel="stylesheet" href="https://use.typekit.net/hsc6lry.css"/>
             </Head>
             <Header/>
     

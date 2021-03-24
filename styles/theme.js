@@ -11,8 +11,7 @@ const theme = {
     },
 
     fonts: {
-        mainFont: "Verdana",
-        text: "Noto"
+        main: "frank-new",
 
     },
     fontWeights: [
@@ -22,7 +21,7 @@ const theme = {
    
     },
     letterSpacings: [
-        0, 1, 2, 3
+        0, "1px", "2px", "3px"
     ],
     lineHeights: [
         1, 1.5, 2
