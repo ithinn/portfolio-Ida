@@ -18,7 +18,8 @@ const Container = styled.div`
     width: 90%;
     height: 90vh;
     margin: 0 auto;
-    
+    background-color: cyan;
+    border: 10px solid blue;
 `
 
 //Used to format the values from the data 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Box} from "reflexbox/styled-components"
+import {Box, Flex} from "reflexbox/styled-components"
 import Link from "next/link"
 
 
@@ -20,6 +20,7 @@ const H3 = styled.h3`
 const P = styled.p`
     font-size: ${props => props.theme.fontSizes.txt};
     text-align: center;
+    
 `
 
 const Pitalic = styled(P)`
@@ -31,7 +32,7 @@ const Pitalic = styled(P)`
 
 const Info = ({heading, info, year, details}) => {
     return(
-        <Box width="80%" p={3}>
+        <Box width="100vw" maxWidth="40em" p={3}  flexDirection="column">
             <H2>{heading}</H2>
             <H3>({year})</H3>
             <Pitalic>{info}</Pitalic>

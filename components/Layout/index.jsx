@@ -6,6 +6,8 @@ function Layout( {children} ) {
         <>  
             <Head>
                 <link rel="stylesheet" href="https://use.typekit.net/hsc6lry.css"/>
+                <title>Test</title>
+                <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Header/>
     

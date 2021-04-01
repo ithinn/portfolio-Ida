@@ -20,28 +20,45 @@ function Test({conflicts}) {
         </div>
     )
 }
-
-export async function getStaticProps() {
+export default Test;
+/*
+export async function getServerSideProps() {
     console.log("TEST")
-    const data = await bucket.getObjects({
-        type: 'conflicts',
-        props: 'slug,title,metadata'
-    })
 
-    console.log("DATA", data);
+    try {
+        const data = await bucket.getObjects({
+            type: 'conflicts',
+            props: 'slug,title,metadata'
+        })
+    
+        console.log("DATA", data);
 
-    const conflicts = await data.getObjects
-
-    console.log(conflicts);
+        const conflicts = await data.objects
+    
+        console.log(conflicts);
+    }
+    catch (error){
+        console.log("ERROR", error);
+    }
+    
     
     return {
         props: {
             conflicts
         }
     }
-}
+}*/
 
-export default Test;
+export async function getServerSideProps(context) {
+    console.log("TESTTEST")
+    
+    return {
+
+      props: {}, // will be passed to the page component as props
+    }
+  }
+
+
 
 /*
  {conflicts.map(post => (

@@ -1,20 +1,33 @@
-import React, {useEffect, useRef, useState, Fragment} from "react";
-import Mapbox from "mapbox-gl";
-import styled from "styled-components";
-
-import InfoBox from "../InfoBox";
-import Skeleton from "../../components/Skeleton";
-
-
 const Cosmic = require('cosmicjs')
 const api = Cosmic()
-//import Error from "../../components/Error";
+import styled from "styled-components";
+import Mapbox from "mapbox-gl"
+import {useRef, useEffect, useState} from "react"
+import InfoBox from "../components/InfoBox";
 
 let map = null;
 let popUp = null;
 let geoData = null;
 let secondData = null;
 
+const clientConflict = new Cosmic();
+const confBucket = clientConflict.bucket({
+    slug: "un-peacekeeping-operations-development",
+    read_key: '4x1nPKP7u1jO55alIKtZJcF9SWndY2R171brbo8crgEUb4QM1n'
+})
+
+const clientUN = new Cosmic();
+const opBucket = clientUN.bucket({
+    slug: "un-peacekeeping-operations-development",
+    read_key: '4x1nPKP7u1jO55alIKtZJcF9SWndY2R171brbo8crgEUb4QM1n'
+})
+
+
+/*
+const confBucket = api.bucket({
+    slug: "un-peacekeeping-operations-development",
+    read_key: '4x1nPKP7u1jO55alIKtZJcF9SWndY2R171brbo8crgEUb4QM1n'
+})*/
 
 const MapWrapper = styled.div`
     width: 96vw;
@@ -23,8 +36,8 @@ const MapWrapper = styled.div`
 `
 
 
-function Map() {
-    
+function Test({conflicts, operations}) {
+
     const mapElement = useRef();
 
     const [operationsData, setOperationsData] = useState(null);
@@ -33,58 +46,12 @@ function Map() {
     const [operationsCB, setOperationsCB] = useState(true)
     const [error, setError] = useState(false)
  
-    Mapbox.accessToken = process.env.NEXT_PUBLIC_APP_MAPBOX_API_KEY;
-
-
-    //------------------------------------------------------
-    //GET DATA FROM COSMIC----------------------------------
-    //------------------------------------------------------
+    Mapbox.accessToken = "pk.eyJ1IjoiaXRoaW5uIiwiYSI6ImNrazZrb29taTAzcDYycW52OHAwYWg3OHAifQ.aX82AcqyKytGqXNzF-Ewmw"
 
     useEffect(() => {
-
-        //UN Peacekeeping operations
-        const clientUN = new Cosmic()
-        const operations = clientUN.bucket({
-            slug: "un-peacekeeping-operations-development",
-            read_key: "4x1nPKP7u1jO55alIKtZJcF9SWndY2R171brbo8crgEUb4QM1n"
-        });
-
-        console.log("OPBUCKET", operations);
-
-        operations.getObjects({
-            type: 'operations',
-            limit: 20,
-            props: 'slug,title,metadata',
-            sort: 'created_at'
-        })
-        .then(data => {
-            setOperationsData(data);
-        })
-        .catch(error => {
-            console.log(error);
-           // setError(true)
-        })
-
-        //conflicts
-        const clientConflict = new Cosmic()
-        const conflicts = clientConflict.bucket({
-            slug: process.env.REACT_APP_BUCKET_SLUG,
-            read_key: process.env.REACT_APP_READ_KEY
-        });
-
-        conflicts.getObjects({
-            type: 'conflicts',
-            limit: "20",
-            props: 'slug,title,metadata',
-            sort: 'created_at'
-        })
-        .then(data => {
-            setConflictData(data);
-        })
-        .catch(error => {
-        })
+        setOperationsData(operations);
+        setConflictData(conflicts)
     }, []);
-
 
     //----------------------------------------------------
     //CREATE THE MAP -------------------------------------
@@ -107,7 +74,7 @@ function Map() {
             //Creates markers for UN operations
             if (operationsData !== null) {
 
-                operationsData.objects.forEach(item => {
+                operationsData.forEach(item => {
                     el = document.createElement('button');
                     el.classList.add("operations-marker")
                     el.style.display = 'block';
@@ -144,7 +111,7 @@ function Map() {
             if (conflictData !== null) {
 
     
-                conflictData.objects.forEach(item => {
+                conflictData.forEach(item => {
                     
                     //styling for custom marker
                     el = document.createElement('button');
@@ -272,8 +239,6 @@ function Map() {
 
     }, [operationsData, conflictData]);
 
-  
-    //Shows/hides the markers based on the .checked status of the checkbox. 
     function handleCheckbox(event) {
         
         let list;
@@ -343,15 +308,9 @@ function Map() {
         }   
     }
 
-    function renderSkeleton() {
-        return(
-            <Skeleton /> 
-        )
-    }
-    
-    function renderPage() {
-        return(
-            <>
+
+    return(
+        <>
                 <InfoBox 
                     func={handleCheckbox} 
                     handleClose={refreshMap} 
@@ -361,21 +320,68 @@ function Map() {
 
                 <MapWrapper ref={mapElement} />
             </>
-        )
-    }
-
-    if (error === true) {
-        return(<Error/>)
-    }
-
-    return(
-        <>
-            {(operationsData === null) ? renderSkeleton() : renderPage()}
-        </>
     )
 }
+export default Test;
 
-export default Map;
+export async function getServerSideProps() {
+    console.log("TEST")
 
-
+    try {
+        const opData = await opBucket.getObjects({
+            query: {
+                type: 'operations',
+                props: 'slug,title,metadata'
+            }
+        })
         
+        const confData = await confBucket.getObjects({
+            query: {
+            type: 'conflicts',
+            props: 'slug,title,metadata'
+            }
+        })
+
+  
+    
+        
+
+        const conflicts = await confData.objects
+        const operations = await opData.objects
+        
+        console.log("OPERATIONS", operations);
+
+        return {
+            props: {
+                conflicts,
+                operations
+            }
+        }
+    }
+    catch (error){
+        console.log("ERROR", error);
+
+        return {
+            props: {error}
+        }
+    }
+}
+
+/*
+export async function getServerSideProps(context) {
+    console.log("TEDTKARTESTTEST")
+    
+    return {
+
+      props: {}, // will be passed to the page component as props
+    }
+  }
+*/
+
+
+/*
+ {conflicts.map(post => (
+                <div key={post.slug}>
+                    <h3>{post.title}</h3>
+                </div>
+            ))}*/ 

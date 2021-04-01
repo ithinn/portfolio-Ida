@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { Flex, Box } from "reflexbox/styled-components";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
@@ -9,78 +8,49 @@ import Refugees from "../components/Refugees"
 import Mockup from "../components/Mockup"
 import Map from "../components/Map";
 import Test from "../components/Test";
-
+import SlideShow from "../components/SlideShow";
+import { Section } from "../components/Section";
 const Home = () => {
 
 
 
   const [imgSrc, setImgSrc] = useState(null)
 
-  const burgerImg = [
-    "/img/burgerMockups/kitchenMockup.png",
-    "/img/burgerMockups/restMockup.png"
-]
+  const compare = [
+    "/img/compare/compare-1.png",
+    "/img/compare/compare-2.png",
+    "/img/compare/compare-3.png",
+    "/img/compare/compare-4.png",
+  ]
 
-/*
+  const burger = [
+    "/img/burger/mockup-01.png",
+    "/img/burger/mockup-02.png",
+    "/img/burger/mockup-03.png",
+    "/img/burger/mockup-04.png",
+  ]
 
-  const handleImgChange = (element, array, interval) => {
-   
-      let index = 0;
-
-      setInterval(() => {
-          index += 1;
-
-          if (index === array.length) {
-              index = 0;
-          }
-
-          
-          setImgSrc(array[index])
-          //return array[index];
-          //el.src = arr[index];
-  
-      }, interval)
-  }
-
-  console.log(imgSrc);*/
 
   return (
     <Layout>
       <Flex width="100%" height="auto" alignItems="center" flexDirection="column">
-        
-        <Flex flexDirection="column" alignItems="center" height="auto" width="100%">
+
+        <Section flexDirection="column" width="100%" alignItems="center" >
           <Info heading="Flyktningstatistikk" year="2021" info="React, Highcharts, Javascript"></Info>
-          <SectionBase flexDirection="column">
-            <Refugees/>
-          </SectionBase>
-        </Flex>
+          <Refugees/>
+        </Section>
 
-        <Flex flexDirection="column" alignItems="center" height="100vh" width="100%">
-          <Info bg="purple" heading="Bestillingsløsning" year="2021" info="React, Next.js, Firebase" details="Skoleoppgave: Lag en bestillingsløsning for en burgerrestaurant med realtime-oppdateringer mellom kjøkkenvisning, restaurantvisning og kundevisning. Autentisering og skjemavalidering."></Info>
-          <SectionBase flexDirection="column" mt={4} height="auto" >
-            <Mockup src="/img/burgerMockups/mockup-0" numbOfImg={4} handleChange={(array, interval) => handleImgChange(array, interval)}></Mockup>
-          </SectionBase>
-        </Flex>
+        <Section flexDirection="column" alignItems="center" width="100%">
+          <Info heading="Bestillingsløsning" year="2021" info="React, Next.js, Firebase" details="Skoleoppgave: Lag en bestillingsløsning for en burgerrestaurant med realtime-oppdateringer mellom kjøkkenvisning, restaurantvisning og kundevisning. Autentisering og skjemavalidering."></Info>
+          <SlideShow array={burger}/>
+        </Section>
 
-        <Flex flexDirection="column" alignItems="center" height="auto" width="100%">
+        <Section flexDirection="column" alignItems="center" height="auto" width="100%">
           <Info 
           heading="Sammenlign land" year="2020" info="Design" details="Designet ikoner og ny sidevisning for FN-sambandet"></Info>
-          <SectionBase flexDirection="column" mt={4}>
-            <Mockup src="/img/compare/compare-" numbOfImg={4} handleChange={(array, interval) => handleImgChange(array, interval)}></Mockup>
-          </SectionBase>
-        </Flex>
+          <SlideShow array={compare}/>
+        </Section>
 
-        <Flex flexDirection="column" alignItems="center">
-          <Info 
-          heading="Konfliktkart" year="2021" info="Mapbox, CosmicJs, React, Javascript" details="Noen detaljer om kartet"></Info>
-          <SectionBase flexDirection="column" mt={4}>
-            <Test/>
-          </SectionBase>
-        </Flex>
-
-
-        
-        
       </Flex>
     </Layout>
     
@@ -88,3 +58,11 @@ const Home = () => {
 }
 
 export default Home;
+
+/*<Section flexDirection="column" alignItems="center" width="100%">
+          <Info 
+          heading="Konfliktkart" year="2021" info="Mapbox, CosmicJs, React, Javascript" details="Noen detaljer om kartet"></Info>
+
+          <Map></Map>
+         
+        </Section>*/ 

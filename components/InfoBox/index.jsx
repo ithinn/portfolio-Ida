@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "../Button";
 //import confIcon from "../../public/img/icon_bck_gray.png"
 //import opIcon from "../../public/img/un.png"
-
+import Image from "next/image"
 
 export const InfoBoxBase = styled.article`
     background-color: white;
@@ -92,11 +92,19 @@ function InfoBox({func, conflictCB, operationsCB, refreshMap }) {
                     <LabelAsButton htmlFor="conflicts">
                         {conflictCB === true ? 
                         <ImgDiv>
-                            <IconImage src={confIcon} />
+                            <Image 
+                            src="/img/icon_bck_gray.png"
+                            width={40}
+                            height={40}
+                            />
                         </ImgDiv> 
                         : 
                         <ImgDivOff>
-                            <IconImage src={confIcon} />
+                   <Image 
+                            src="/img/icon_bck_gray.png"
+                            width={40}
+                            height={40}
+                            />
                         </ImgDivOff>}
                         
                         Konflikter
@@ -115,11 +123,22 @@ function InfoBox({func, conflictCB, operationsCB, refreshMap }) {
                         
                         {operationsCB === true ? 
                         <ImgDiv>
-                            <IconImage src={opIcon} />
+                            <Image 
+                            src="/img/un.png"
+                            width={40}
+                            height={40}
+                            />
+                                
+                            
+                            
                         </ImgDiv> 
                         : 
                         <ImgDivOff>
-                            <IconImage src={opIcon} />
+                            <Image 
+                            src="/img/un.png"
+                            width={40}
+                            height={40}
+                            />
                         </ImgDivOff>}
                         
                         FN-operasjoner
