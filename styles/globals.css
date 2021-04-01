@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: frank-new, sans-serif;
   background-color: #f9f9f8;
+  overflow: hidden;
 }
 
 a {
@@ -15,6 +16,3 @@ a {
   box-sizing: border-box;
 }
 
-.test {
-
-}

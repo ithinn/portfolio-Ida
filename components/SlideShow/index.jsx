@@ -14,6 +14,7 @@ const Slideshow = ({array}) => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+        autoplaySpeed: 7000
    
 
     };
