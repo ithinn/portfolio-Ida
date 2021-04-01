@@ -30,6 +30,21 @@ const Home = () => {
     "/img/burger/mockup-04.png",
   ]
 
+  const ec = [
+    "/img/ec/ec-09.png",
+    "/img/ec/ec-10.png",
+    "/img/ec/ec-11.png",
+  ]
+
+  const stat = [
+    "/img/stat/stat_area.png",
+    "/img/stat/stat_bar.png",
+    "/img/stat/stat_bar_all_2.png",
+    "/img/stat/stat_country_all.png",
+    "/img/stat/stat_map.png",
+    "/img/stat/stat_table.png",
+  ]
+
 
   return (
     <Layout>
@@ -47,8 +62,20 @@ const Home = () => {
 
         <Section flexDirection="column" alignItems="center" height="auto" width="100%">
           <Info 
+          heading="Instrumentopplæring" year="2021" info="React, Next.js" details="Hackathon for EC-play: Navigasjon og sidestruktur for videoopplæring"></Info>
+          <SlideShow array={ec}/>
+        </Section>
+
+        <Section flexDirection="column" alignItems="center" height="auto" width="100%">
+          <Info 
           heading="Sammenlign land" year="2020" info="Design" details="Designet ikoner og ny sidevisning for FN-sambandet"></Info>
           <SlideShow array={compare}/>
+        </Section>
+
+        <Section flexDirection="column" alignItems="center" height="auto" width="100%">
+          <Info 
+          heading="Statistikkvisning" year="2020" info="Design" details="Designet ny statistikkvisning for FN-sambandet"></Info>
+          <SlideShow array={stat}/>
         </Section>
 
       </Flex>
