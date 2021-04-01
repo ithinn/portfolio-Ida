@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Mapbox from "mapbox-gl"
 import {useRef, useEffect, useState} from "react"
 import InfoBox from "../components/InfoBox";
-
+import { Section } from "../components/Section";
 let map = null;
 let popUp = null;
 let geoData = null;
@@ -33,6 +33,7 @@ const MapWrapper = styled.div`
     width: 96vw;
     height: 90vh;
     margin: 0 auto;
+    border: 2px solid blue;
 `
 
 
@@ -286,12 +287,12 @@ function Test({conflicts, operations}) {
         }
     }
 
-
+    
     //Refreshes the map, empties the Info, removes the polygons and zooms out
     function refreshMap(event) {
     
         document.querySelector(".infowrap").innerHTML = ""
-
+        
         map.flyTo({
             center: [6.37, 20.56],
             zoom: 2
@@ -310,7 +311,9 @@ function Test({conflicts, operations}) {
 
 
     return(
-        <>
+        <Section>
+                
+                <MapWrapper ref={mapElement} />
                 <InfoBox 
                     func={handleCheckbox} 
                     handleClose={refreshMap} 
@@ -318,8 +321,7 @@ function Test({conflicts, operations}) {
                     operationsCB={operationsCB} 
                     refreshMap={refreshMap} />
 
-                <MapWrapper ref={mapElement} />
-            </>
+            </Section>
     )
 }
 export default Test;

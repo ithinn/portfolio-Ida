@@ -36,7 +36,7 @@ const Slideshow = ({array}) => {
     })
 
     return (
-       <Box width="100%" maxWidth="70%" height="auto">
+       <Box width={[1, 3/4]} height="auto">
         <Slider {...settings}>
             {mappedSlides}
         </Slider>
