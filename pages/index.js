@@ -17,10 +17,10 @@ const Home = () => {
   const [imgSrc, setImgSrc] = useState(null)
 
   const compare = [
-    "/img/compare/compare-1.png",
-    "/img/compare/compare-2.png",
-    "/img/compare/compare-3.png",
-    "/img/compare/compare-4.png",
+    "/img/compare/comp-19.png",
+    "/img/compare/comp-20.png",
+    "/img/compare/comp-21.png",
+    "/img/compare/comp-22.png",
   ]
 
   const burger = [
@@ -37,12 +37,12 @@ const Home = () => {
   ]
 
   const stat = [
-    "/img/stat/stat_area.png",
-    "/img/stat/stat_bar.png",
-    "/img/stat/stat_bar_all_2.png",
-    "/img/stat/stat_country_all.png",
-    "/img/stat/stat_map.png",
-    "/img/stat/stat_table.png",
+    "/img/stat/stat_1.png",
+    "/img/stat/stat_2.png",
+    "/img/stat/stat_3.png",
+    "/img/stat/stat_4.png",
+    "/img/stat/stat_5.png",
+    "/img/stat/stat_6.png",
   ]
 
 
