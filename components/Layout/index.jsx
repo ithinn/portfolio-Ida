@@ -1,7 +1,7 @@
 import Header from "../Header";
 import Head from "next/head"
 
-function Layout( {children} ) {
+function Layout( {children, home, about } ) {
     return(
         <>  
             <Head>
@@ -9,7 +9,8 @@ function Layout( {children} ) {
                 <title>Test</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Header/>
+            {home ? <Header page="home"/> : <Header page="about"/>}
+            
     
             <main>{children}</main>
         </>

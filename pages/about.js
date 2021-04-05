@@ -1,5 +1,5 @@
 import { Box, Flex } from "reflexbox/styled-components";
-import { H1, H2, H3, P, Pitalic, Pleft, Li } from "../components/Info";
+import { H1, H2, H3, P, Pitalic, Pleft, Li, NavLi, Nav } from "../components/Info";
 import Image from "next/image"
 import { Section } from "../components/Section";
 import utilStyles from "../styles/utils.module.css";
@@ -7,6 +7,8 @@ import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme"
 import Layout from "../components/Layout"
 import Point from "../components/Point"
+import Link from "next/link";
+
 
 const About = () => {
     const fnSambandet = [
@@ -49,16 +51,19 @@ const About = () => {
         "Apputvikling og kodearkitektur",
         "Universell utforming"
     ]
-
-
+    const telAviv = [
+        "Utredning, research og analyse av den politiske situasjonen i Israel",
+        'Utarbeidelse av rapporten "Divided Movement: The settlers and the separation barrier in the West Bank"'
+    ]
 
 
 
 
 
     return(
-        <Layout>
+        <Layout about>
         <Section>
+            
             <Flex flexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
                 <Box m={3} p={3}>
                     <Image 
@@ -84,9 +89,26 @@ const About = () => {
                 </Box>
             </Flex>
 
+                <Nav className={utilStyles.sticky}>
+                    <ul>
+                        <Link href="#experience">
+                            <NavLi>Arbeidserfaring</NavLi>
+                        </Link>
+
+                        <Link href="#education">
+                            <NavLi >Utdanning</NavLi>
+                        </Link>
+                        
+                        <Link href="#courses">
+                            <NavLi>Kurs</NavLi>
+                        </Link>
+                        
+                    </ul>
+                </Nav>
+
             <Flex flexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
-                <Box width="100%">
-                    <H2>Arbeidserfaring</H2>
+                <Box width="100%" mt={5}>
+                    <H2 id="experience">Arbeidserfaring</H2>
                     <Point 
                         date="2011-dd" 
                         where="FN-sambandet" 
@@ -119,8 +141,8 @@ const About = () => {
                         details={lnu}/>
                 </Box>
 
-                <Box width="100%">
-                    <H2>Utdanning</H2>
+                <Box width="100%" mt={5}>
+                    <H2 id="education">Utdanning</H2>
                     <Point
                         date="08.2020-dd" 
                         where="Fagskolen Kristiania" 
@@ -130,10 +152,96 @@ const About = () => {
                     <Point
                         date="01.2013-06.2013" 
                         where="Universitetet i Oslo" 
-                        title="Frontend-utvikling"
-                        details={frontend} 
+                        title="Folkerett"
+                    />
+                    <Point
+                        date="08.2008-03.2009" 
+                        where="Universitetet i Damaskus/Privatlærer" 
+                        title="Arabisk"
+                    />
+                    <Point
+                        date="08.2006-12.2006" 
+                        where="Den Kongelige Norske Ambassade i Tel Aviv/Universitetet i Oslo" 
+                        title="Internasjonalt prosjektsemester"
+                        details={telAviv}
+                    />
+                    <Point
+                        date="08.2002-06.2007" 
+                        where="Universitetet i Oslo" 
+                        title="Master i Midtøsten- og Nord-Afrikakunnskap"
+                        
+                    />
+                    <Point
+                        date="08.1998-06.2001" 
+                        where="Bodø Videregående skole" 
+                        title="Videregående skole, studieretning for musikk"
+                        
                     />
 
+                </Box>
+
+                <Box width="100%" mt={5}>
+                    <H2 id="courses">Kurs</H2>
+                    <Point
+                        date="02.2021" 
+                        where="Netlife" 
+                        title="Testival - lær (nesten) alt om brukertesting" 
+                    />
+                    <Point
+                        date="01.2020" 
+                        where="Qross" 
+                        title="Adobe After Effects Grunnkurs" 
+                    />
+                    <Point
+                        date="09.2018" 
+                        where="Qross" 
+                        title="Adobe Premiere Pro Grunnkurs" 
+                    />
+                    <Point
+                        date="05.2018" 
+                        where="Qross" 
+                        title="Microsoft Excel og Adobe Illustrator: Infografikk og diagrammer" 
+                    />
+                    <Point
+                        date="11.2016" 
+                        where="DOGA" 
+                        title="Information Visualization (workshop)" 
+                    />
+                    <Point
+                        date="04.2014" 
+                        where="Qross" 
+                        title="Adobe Illustrator 2" 
+                    />
+                    <Point
+                        date="09.2013" 
+                        where="Qross" 
+                        title="Adobe Illustrator 1" 
+                    />
+                    <Point
+                        date="05.2013" 
+                        where="Webgruppen" 
+                        title="Bildebruk på web og i sosiale medier" 
+                    />
+                    <Point
+                        date="04.2013" 
+                        where="Webgruppen" 
+                        title="Lynkurs i Google Analytics" 
+                    />
+                    <Point
+                        date="05.2012" 
+                        where="Webgruppen" 
+                        title="Adobe Photoshop og Elements" 
+                    />
+                    <Point
+                        date="12.2011" 
+                        where="Webgruppen" 
+                        title="Lynkurs for nettredaktører" 
+                    />
+                    <Point
+                        date="11.2007" 
+                        where="Prosjektforum" 
+                        title="Prosjektlederen som leder" 
+                    />
                 </Box>
                
            

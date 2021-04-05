@@ -51,6 +51,35 @@ export const Li = styled.li`
 
 `
 
+export const Nav = styled.nav`
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    margin: 1em;
+    padding: ${props => props.theme.space[3]};
+   
+    
+
+`
+export const NavLi = styled(Li)`
+    margin: 1em;
+    font-size: ${props => props.theme.fontSizes.sm};
+    display: inline;
+    font-weight: 600;
+    text-transform: uppercase;
+ 
+   
+
+   &:hover {
+       color: orange;
+       text-shadow: ${props => props.theme.shadows.card};
+        cursor: pointer;
+       letter-spacing: ${props => props.theme.letterSpacings[1]};
+       font-style: underline;
+       
+   }
+
+`
+
 
 
 const Info = ({heading, info, year, details}) => {

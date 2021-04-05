@@ -45,9 +45,14 @@ const Home = () => {
     "/img/stat/stat_6.png",
   ]
 
+  const map = [
+    "/img/map/map_1.png",
+    "/img/map/map_2.png",
+  ]
+
 
   return (
-    <Layout>
+    <Layout home>
       <Flex width="100%" height="auto" alignItems="center" flexDirection="column">
 
         <Section flexDirection="column" width="100%" alignItems="center" >
@@ -64,6 +69,12 @@ const Home = () => {
           <Info 
           heading="Instrumentopplæring" year="2021" info="React, Next.js" details="Hackathon for EC-play: Navigasjon og sidestruktur for videoopplæring"></Info>
           <SlideShow array={ec}/>
+        </Section>
+
+        <Section flexDirection="column" alignItems="center" height="auto" width="100%">
+          <Info 
+          heading="Konfliktkart" year="2021" info="React, Mapbox, Cosmic, Highcharts, Plotly" details="Skoleoppgave: Lag et navigerbart kart ved hjelp av headless CMS og Mapbox, visualiser data hentet fra et eksternt API"></Info>
+          <SlideShow array={map}/>
         </Section>
 
         <Section flexDirection="column" alignItems="center" height="auto" width="100%">

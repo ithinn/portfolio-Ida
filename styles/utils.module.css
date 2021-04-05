@@ -5,3 +5,10 @@
 .round {
     border-radius: 50%;
 }
+
+.sticky {
+
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
