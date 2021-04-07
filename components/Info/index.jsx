@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {Box, Flex} from "reflexbox/styled-components"
 import Link from "next/link"
+import Image from "next/image"
 
 export const H1 = styled.h1`
     font-family: ${props => props.theme.fonts.main};
@@ -17,6 +18,8 @@ export const H2 = styled.h2`
     letter-spacing: ${props => props.theme.letterSpacings[1]};
     text-transform: uppercase;
     text-align: center;
+    
+   
 `
 
 export const H3 = styled.h3`
@@ -51,17 +54,20 @@ export const Li = styled.li`
 
 `
 
-export const Nav = styled.nav`
+export const Nav = styled(Flex)`
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
     margin: 1em;
     padding: ${props => props.theme.space[3]};
-   
+    flex-wrap: wrap;
+    background-color: #f9f9f8;
+    width: 100%;
     
 
 `
-export const NavLi = styled(Li)`
+export const NavA = styled.a`
     margin: 1em;
+    
     font-size: ${props => props.theme.fontSizes.sm};
     display: inline;
     font-weight: 600;
@@ -89,6 +95,8 @@ const Info = ({heading, info, year, details}) => {
             <H3>({year})</H3>
             <Pitalic>{info}</Pitalic>
             <P>{details}</P>
+            
+            
         </Box>
     )
 }

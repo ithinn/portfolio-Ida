@@ -13,10 +13,7 @@ const Slideshow = ({array}) => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 7000
-   
-
+    
     };
 
 
@@ -36,7 +33,7 @@ const Slideshow = ({array}) => {
     })
 
     return (
-       <Box width={[1, 3/4]} height="auto">
+       <Box width={[1, 3/4]} height="auto" mb={5}>
         <Slider {...settings}>
             {mappedSlides}
         </Slider>

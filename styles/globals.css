@@ -4,12 +4,17 @@ body {
   margin: 0;
   font-family: frank-new, sans-serif;
   background-color: #f9f9f8;
-  overflow-x: hidden;
+  
+  
 }
+
+
+
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
+  margin-left: 1em;
 }
 
 * {

@@ -1,5 +1,5 @@
 import { Box, Flex } from "reflexbox/styled-components";
-import { H1, H2, H3, P, Pitalic, Pleft, Li, NavLi, Nav } from "../components/Info";
+import { H1, H2, H3, P, Pitalic, Pleft, Li, NavA, Nav } from "../components/Info";
 import Image from "next/image"
 import { Section } from "../components/Section";
 import utilStyles from "../styles/utils.module.css";
@@ -76,6 +76,12 @@ const About = () => {
                     <P>09.06.1982</P>
                     <P>Tlf. 415 15 385</P>
                     <P>ithinn@gmail.com</P>
+                    <Flex alignItems="center" justifyContent="center">
+                        <Image src="/img/gitHubLogo.png" width={30} height={30}/>
+                        <Link href="https://github.com/ithinn">
+                            <a>Github-profil</a>
+                        </Link>
+                    </Flex>
                 </Box>
 
                 <Box m={3} p={3}>
@@ -89,21 +95,21 @@ const About = () => {
                 </Box>
             </Flex>
 
-                <Nav className={utilStyles.sticky}>
-                    <ul>
+                <Nav className={utilStyles.sticky} as="nav">
+                    
                         <Link href="#experience">
-                            <NavLi>Arbeidserfaring</NavLi>
+                            <NavA>Arbeidserfaring</NavA>
                         </Link>
 
                         <Link href="#education">
-                            <NavLi >Utdanning</NavLi>
+                            <NavA >Utdanning</NavA>
                         </Link>
                         
                         <Link href="#courses">
-                            <NavLi>Kurs</NavLi>
+                            <NavA>Kurs</NavA>
                         </Link>
                         
-                    </ul>
+                    
                 </Nav>
 
             <Flex flexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
