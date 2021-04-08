@@ -77,7 +77,6 @@ const Home = () => {
     "/img/pp/Lysbilde6.png",
     "/img/pp/Lysbilde8.png",
     "/img/pp/Lysbilde12.png",
-    ,
     "/img/pp/Lysbilde17.png",
     "/img/pp/Lysbilde21.png",
   ]
