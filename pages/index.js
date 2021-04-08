@@ -38,10 +38,10 @@ const Home = () => {
   const [imgSrc, setImgSrc] = useState(null)
 
   const compare = [
+    "/img/compare/comp-22.png",
+    "/img/compare/comp-21.png",
     "/img/compare/comp-19.png",
     "/img/compare/comp-20.png",
-    "/img/compare/comp-21.png",
-    "/img/compare/comp-22.png",
   ]
 
   const burger = [
@@ -69,6 +69,17 @@ const Home = () => {
   const map = [
     "/img/map/map_1.png",
     "/img/map/map_2.png",
+  ]
+
+  const pp = [
+    "/img/pp/Lysbilde15.png",
+    "/img/pp/Lysbilde3.png",
+    "/img/pp/Lysbilde6.png",
+    "/img/pp/Lysbilde8.png",
+    "/img/pp/Lysbilde12.png",
+    ,
+    "/img/pp/Lysbilde17.png",
+    "/img/pp/Lysbilde21.png",
   ]
 
   console.log(windowSize.width);
@@ -142,6 +153,12 @@ const Home = () => {
           <Link href="https://www.fn.no/statistikk">
                 <a>Se på FN-sambandets sider</a>
           </Link>
+        </Section>
+
+        <Section flexDirection="column" alignItems="center" height="auto" width="100%">
+          <Info 
+          url="https://www.fn.no" heading="Visuell profil og Powerpoint-mal" year="2019" info="Design" details="Designet ny visuell profil og Powerpoint-mal for FN-sambandet"></Info>
+          <SlideShow array={pp}/>
         </Section>
 
       </Flex>

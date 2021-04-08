@@ -112,9 +112,9 @@ const About = () => {
                     
                 </Nav>
 
-            <Flex flexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
-                <Box width="100%" mt={5}>
-                    <H2 id="experience">Arbeidserfaring</H2>
+            <Flex  flexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
+                <Box id="experience" width="100%" mt={5}>
+                    <H2>Arbeidserfaring</H2>
                     <Point 
                         date="2011-dd" 
                         where="FN-sambandet" 
@@ -145,10 +145,12 @@ const About = () => {
                         where="Landsrådet for Norges barne- og ungdomsorganisasjoner" 
                         title="Prosjektkoordinator" 
                         details={lnu}/>
+
+                        
                 </Box>
 
-                <Box width="100%" mt={5}>
-                    <H2 id="education">Utdanning</H2>
+                <Box id="education" width="100%" mt={5}>
+                    <H2>Utdanning</H2>
                     <Point
                         date="08.2020-dd" 
                         where="Fagskolen Kristiania" 
@@ -186,7 +188,9 @@ const About = () => {
 
                 </Box>
 
-                <Box width="100%" mt={5}>
+                
+
+                <Box id="courses" width="100%" mt={5}>
                     <H2 id="courses">Kurs</H2>
                     <Point
                         date="02.2021" 

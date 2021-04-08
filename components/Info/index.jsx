@@ -62,6 +62,7 @@ export const Nav = styled(Flex)`
     flex-wrap: wrap;
     background-color: #f9f9f8;
     width: 100%;
+    justify-content: center;
     
 
 `

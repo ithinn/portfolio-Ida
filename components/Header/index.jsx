@@ -28,19 +28,26 @@ const Subtitle = styled.h2`
 `
 
 const Round = styled(Flex)`
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color:#333;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
     color: white;
-    position: absolute;
+    position: fixed;
     right: 2vw;
     top: 2vh;
     border: none;
     padding: 1em;
-    
+    z-index: 4;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f9f9f8;
+        color: #333;
+        border: 2px solid #333;
+    }
 `
 
 const Header = ({ page }) => {
