@@ -6,7 +6,7 @@ function Layout( {children, home, about } ) {
         <>  
             <Head>
                 <link rel="stylesheet" href="https://use.typekit.net/hsc6lry.css"/>
-                <title>Test</title>
+                <title>Ida Jørgensen Thinn - Portfolio</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             {home ? <Header page="home"/> : <Header page="about"/>}

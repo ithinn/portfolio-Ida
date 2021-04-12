@@ -168,10 +168,3 @@ const Home = () => {
 
 export default Home;
 
-/*<Section flexDirection="column" alignItems="center" width="100%">
-          <Info 
-          heading="Konfliktkart" year="2021" info="Mapbox, CosmicJs, React, Javascript" details="Noen detaljer om kartet"></Info>
-
-          <Map></Map>
-         
-        </Section>*/ 
