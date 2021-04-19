@@ -16,8 +16,13 @@ const HeaderBase = styled.header`
 
 const H1 = styled.h1`
     font-size: ${props => props.theme.fontSizes.xl};
-    text-align: left;
+    text-align: center;
     margin-bottom: 0;
+
+    @media (max-width: 700px) {
+        font-size: ${props => props.theme.fontSizes.md};
+        max-width: 50%
+    }
 `
 
 const Subtitle = styled.h2`
@@ -61,7 +66,7 @@ const Header = ({ page }) => {
             <H1>Ida Jørgensen Thinn</H1>
             <Subtitle>{subtitle}</Subtitle>
             <Round as="button" onClick={() => {router.push(path); console.log("Pushed", path)}}>
-                    {page === "home" ? "CV" : "Eksempler"}
+                    {page === "home" ? "CV" : "Portfolio"}
             </Round>
         </HeaderBase>
     )
