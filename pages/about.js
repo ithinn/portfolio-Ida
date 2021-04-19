@@ -8,6 +8,7 @@ import theme from "../styles/theme"
 import Layout from "../components/Layout"
 import Point from "../components/Point"
 import Link from "next/link";
+import Wordcloud from "../components/WordCloud";
 
 
 const About = () => {
@@ -56,6 +57,10 @@ const About = () => {
         'Utarbeidelse av rapporten "Divided Movement: The settlers and the separation barrier in the West Bank"'
     ]
 
+    const myLoader = ({src, width, quality}) => {
+        return <Image src="./img/avatar.jpg" width={200} quality={quality || 75}/>
+    }
+
 
 
 
@@ -67,7 +72,7 @@ const About = () => {
             <Flex flexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
                 <Box m={3} p={3}>
                     <Image 
-                        src="/img/ida.jpg" 
+                        src="/img/ida_small.jpg" 
                         width={200} 
                         height={200} 
                         className={utilStyles.round}/>
@@ -191,7 +196,8 @@ const About = () => {
                 
 
                 <Box id="courses" width="100%" mt={5}>
-                    <H2 id="courses">Kurs</H2>
+                    <H2 id="courses">IT-kompetanse</H2>
+                    <Wordcloud/>
                     <Point
                         date="02.2021" 
                         where="Netlife" 

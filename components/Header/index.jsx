@@ -54,11 +54,14 @@ const Header = ({ page }) => {
     const router = useRouter();
 
     const path = page === "home" ? "/about" : "/";
-
+    const subtitle = page === "home" ? "Portfolio" : "" 
+    const myLoader = ({src, width, quality}) => {
+        return <Image src="./img/avatar.jpg" width={500} quality={quality || 75}/>
+    }
     return(
         <HeaderBase>
-            <H1>Portfolio</H1>
-            <Subtitle>Ida Jørgensen Thinn</Subtitle>
+            <H1>Ida Jørgensen Thinn</H1>
+            <Subtitle>{subtitle}</Subtitle>
             <Round as="button" onClick={() => {router.push(path); console.log("Pushed", path)}}>
                     {page === "home" ? "CV" : "Hjem"}
             </Round>
@@ -67,5 +70,3 @@ const Header = ({ page }) => {
 }
 
 export default Header;
-
-// <Link href={home ? "/about" : "/"}>{home ? "Hjem" : "CV"}</Link>
