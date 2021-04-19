@@ -55,9 +55,7 @@ const Header = ({ page }) => {
 
     const path = page === "home" ? "/about" : "/";
     const subtitle = page === "home" ? "Portfolio" : "" 
-    const myLoader = ({src, width, quality}) => {
-        return <Image src="./img/avatar.jpg" width={500} quality={quality || 75}/>
-    }
+   
     return(
         <HeaderBase>
             <H1>Ida Jørgensen Thinn</H1>

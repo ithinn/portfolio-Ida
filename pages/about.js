@@ -9,7 +9,8 @@ import Layout from "../components/Layout"
 import Point from "../components/Point"
 import Link from "next/link";
 import Wordcloud from "../components/WordCloud";
-
+import List from "../components/List"
+import IconWrapper from "../components/IconWrapper";
 
 const About = () => {
     const fnSambandet = [
@@ -61,6 +62,20 @@ const About = () => {
         return <Image src="./img/avatar.jpg" width={200} quality={quality || 75}/>
     }
 
+    const courses = [
+        "Testival - lær (nesten) alt om brukertesting",
+        "Google Analytics",
+        "Information Visualization",
+        "Microsoft Excel og Adobe Illustrator: Infografikk og diagrammer",
+        "Adobe Illustrator",
+        "Adobe Photoshop",
+        "Adobe After Effects",
+        "Adobe Premiere Pro",
+        "Bildebruk på web og i sosiale medier",
+        "Lynkurs for nettredaktører",
+        "Prosjektlederen som leder"
+    ]
+
 
 
 
@@ -101,7 +116,11 @@ const About = () => {
             </Flex>
 
                 <Nav className={utilStyles.sticky} as="nav">
-                    
+
+                        <Link href="#courses">
+                            <NavA>IT-kompetanse</NavA>
+                        </Link>
+
                         <Link href="#experience">
                             <NavA>Arbeidserfaring</NavA>
                         </Link>
@@ -110,14 +129,19 @@ const About = () => {
                             <NavA >Utdanning</NavA>
                         </Link>
                         
-                        <Link href="#courses">
-                            <NavA>Kurs</NavA>
-                        </Link>
+                        
                         
                     
                 </Nav>
 
+
             <Flex  flexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
+                <Box id="courses" width="100%" mt={5}>
+                    <H2 id="courses">IT-kompetanse og kurs</H2>
+                    <IconWrapper/>
+                    <List array={courses}/>
+                </Box>
+
                 <Box id="experience" width="100%" mt={5}>
                     <H2>Arbeidserfaring</H2>
                     <Point 
@@ -192,75 +216,6 @@ const About = () => {
                     />
 
                 </Box>
-
-                
-
-                <Box id="courses" width="100%" mt={5}>
-                    <H2 id="courses">IT-kompetanse</H2>
-                    <Wordcloud/>
-                    <Point
-                        date="02.2021" 
-                        where="Netlife" 
-                        title="Testival - lær (nesten) alt om brukertesting" 
-                    />
-                    <Point
-                        date="01.2020" 
-                        where="Qross" 
-                        title="Adobe After Effects Grunnkurs" 
-                    />
-                    <Point
-                        date="09.2018" 
-                        where="Qross" 
-                        title="Adobe Premiere Pro Grunnkurs" 
-                    />
-                    <Point
-                        date="05.2018" 
-                        where="Qross" 
-                        title="Microsoft Excel og Adobe Illustrator: Infografikk og diagrammer" 
-                    />
-                    <Point
-                        date="11.2016" 
-                        where="DOGA" 
-                        title="Information Visualization (workshop)" 
-                    />
-                    <Point
-                        date="04.2014" 
-                        where="Qross" 
-                        title="Adobe Illustrator 2" 
-                    />
-                    <Point
-                        date="09.2013" 
-                        where="Qross" 
-                        title="Adobe Illustrator 1" 
-                    />
-                    <Point
-                        date="05.2013" 
-                        where="Webgruppen" 
-                        title="Bildebruk på web og i sosiale medier" 
-                    />
-                    <Point
-                        date="04.2013" 
-                        where="Webgruppen" 
-                        title="Lynkurs i Google Analytics" 
-                    />
-                    <Point
-                        date="05.2012" 
-                        where="Webgruppen" 
-                        title="Adobe Photoshop og Elements" 
-                    />
-                    <Point
-                        date="12.2011" 
-                        where="Webgruppen" 
-                        title="Lynkurs for nettredaktører" 
-                    />
-                    <Point
-                        date="11.2007" 
-                        where="Prosjektforum" 
-                        title="Prosjektlederen som leder" 
-                    />
-                </Box>
-               
-           
             </Flex>
 
             <Flex bgflexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
