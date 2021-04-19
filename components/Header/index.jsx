@@ -28,8 +28,8 @@ const Subtitle = styled.h2`
 `
 
 const Round = styled(Flex)`
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     background-color:#333;
     border-radius: 50%;
     justify-content: center;
@@ -61,7 +61,7 @@ const Header = ({ page }) => {
             <H1>Ida Jørgensen Thinn</H1>
             <Subtitle>{subtitle}</Subtitle>
             <Round as="button" onClick={() => {router.push(path); console.log("Pushed", path)}}>
-                    {page === "home" ? "CV" : "Hjem"}
+                    {page === "home" ? "CV" : "Eksempler"}
             </Round>
         </HeaderBase>
     )
