@@ -85,24 +85,33 @@ const About = () => {
         <Section>
             
             <Flex flexWrap="wrap" justifyContent="center" width="90%" alignItems="center">
-                <Box m={3} p={3}>
+                <Flex m={3} p={3} flexDirection="column" alignItems="center">
                     <Image 
                         src="/img/ida_small.jpg" 
                         width={200} 
                         height={200} 
                         className={utilStyles.round}/>
-
-                    
+                    <Box>    
                     <P>09.06.1982</P>
                     <P>Tlf. 415 15 385</P>
                     <P>ithinn@gmail.com</P>
-                    <Flex alignItems="center" justifyContent="center">
-                        <Image src="/img/gitHubLogo.png" width={30} height={30}/>
-                        <Link href="https://github.com/ithinn">
-                            <a>Github-profil</a>
-                        </Link>
+                    </Box>
+                    <Flex alignItems="flex-start" justifyContent="center" mb={3} flexDirection="column">
+                        <Flex alignItems="center" mb={3}>
+                            <Image src="/img/gitHubLogo.png" width={30} height={30}/>
+                            <Link href="https://github.com/ithinn">
+                                <a>Github-profil</a>
+                            </Link>
+                        </Flex>
+                        <Flex alignItems="center" mb={3}>
+                            <Image src="/img/icons/linkedin.png" width={30} height={30}/>
+                            <Link href="https://www.linkedin.com/in/ida-j%C3%B8rgensen-thinn-30097a2/">
+                                <a>LinkedIn-profil</a>
+                            </Link>
+                        </Flex>
                     </Flex>
-                </Box>
+               
+                </Flex>
 
                 <Box m={3} p={3}>
                     <ul>
@@ -116,7 +125,6 @@ const About = () => {
             </Flex>
 
                 <Nav className={utilStyles.sticky} as="nav">
-
                         <Link href="#courses">
                             <NavA>IT-kompetanse</NavA>
                         </Link>
@@ -127,11 +135,7 @@ const About = () => {
 
                         <Link href="#education">
                             <NavA >Utdanning</NavA>
-                        </Link>
-                        
-                        
-                        
-                    
+                        </Link>  
                 </Nav>
 
 
