@@ -151,13 +151,6 @@ const Home = () => {
                 <a>Se på FN-sambandets sider</a>
           </Link>
         </Section>
-
-        <Section flexDirection="column" alignItems="center" height="auto" width="100%">
-          <Info 
-          url="https://www.fn.no" heading="Visuell profil og Powerpoint-mal" year="2019" info="Design" details="Designet ny visuell profil og Powerpoint-mal for FN-sambandet"></Info>
-          <SlideShow array={pp}/>
-        </Section>
-
       </Flex>
     </Layout>
     
